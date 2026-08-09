@@ -1,0 +1,13 @@
+name: Daily Habit Logs
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # midnight UTC
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API
+        run: curl -X POST https://habitforge-backend-saty.onrender.com/api/habitlog/create
